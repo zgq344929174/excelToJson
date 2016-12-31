@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
@@ -48,10 +49,12 @@ public class ExcelToJSON {
                 Workbook wb = Workbook.getWorkbook(file); // 从文件流中获取Excel工作区对象（WorkBook）  
                 Sheet sheet = wb.getSheet(0); // 从工作区中取得页（Sheet）  
                 Cell[] header = sheet.getRow(0);  
+                System.out.println(file.getName());
                 System.out.println("sheet.getRows()="+sheet.getRows());
                 System.out.println("sheet.getColumns()="+sheet.getColumns());
-                for (int i = 0; i < sheet.getRows(); i++) { // 循环打印Excel表中的内容  
-                    Map hashMap = new HashMap();  
+                for (int i = 1; i < sheet.getRows(); i++) { // 循环打印Excel表中的内容  
+//                    Map hashMap = new HashMap(); 
+                	Map hashMap = new LinkedHashMap();
                     for (int j = 0; j < sheet.getColumns(); j++) {  
                         Cell cell = sheet.getCell(j, i);  
                         hashMap.put(header[j].getContents(), cell.getContents());  
