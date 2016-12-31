@@ -1,4 +1,4 @@
-package com.excelToJson;
+package com.jxl;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -16,7 +16,7 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;  
   
-public class ExcelToJSON {  
+public class ExcelToJsonForjxl {  
   
     public static void main(String[] args) {  
         // dелоб╣дxlsд©б╪  
