@@ -58,8 +58,16 @@ public class excelToJsonForPoi {
 						hashMap.put(header.getCell(j).getStringCellValue(),
 								sheetAt.getRow(i).getCell(j).getStringCellValue());
 					}
-					String json = JSON.toJSONString(hashMap);
-					FileUtils.writeStringToFile(dest, json + "\n", "UTF-8", true);
+					String json = JSON.toJSONString(hashMap,true);
+					if(i==1){
+						//拼json格式的头
+						FileUtils.writeStringToFile(dest, "[" + json + ",", "UTF-8", true);
+					}
+					FileUtils.writeStringToFile(dest, json + ",", "UTF-8", true);
+					if(i==sheetAt.getLastRowNum()){
+						//拼json格式的尾
+						FileUtils.writeStringToFile(dest, json + "]", "UTF-8", true);
+					}
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
