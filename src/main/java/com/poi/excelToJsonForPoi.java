@@ -17,6 +17,12 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.alibaba.fastjson.JSON;
 
+/**
+ * 
+ * @author zgq
+ * 支持xls、xlsx格式
+ *
+ */
 public class excelToJsonForPoi {
 
 	@SuppressWarnings("resource")
